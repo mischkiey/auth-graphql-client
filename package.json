@@ -1,5 +1,5 @@
 {
-  "name": "graphql-lab",
+  "name": "auth-graphql",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
