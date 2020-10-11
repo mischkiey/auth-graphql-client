@@ -11,19 +11,18 @@ export default function SignUpForm (props) {
     const username = e.target['username'].value;
     const password = e.target['password'].value;
 
-    const mutation = `mutation ($firstName: String!, $lastName: String!, $email: String!, $username: String!, 
-      $password: String!) { 
-        user {
-          postUserSignUpInputs(firstName: $firstName, lastName: $lastName, email: $email, username: $username, password: $password)
-        }
-      }`;
+    const mutation = `mutation ($input: SignUpInput) {
+      postUserSignUpInput(input: $input)
+    }`;
 
     const variables = {
-      firstName,
-      lastName,
-      email,
-      username,
-      password,
+      input: {
+        firstName,
+        lastName,
+        email,
+        username,
+        password,
+      }
     };
 
     console.log(variables)

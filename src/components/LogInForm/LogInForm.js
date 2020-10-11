@@ -8,10 +8,8 @@ export default function LogInForm(props) {
     const username = e.target['username'].value;
     const password = e.target['password'].value;
 
-    const query = `query ($username: String!, $password: String!) { 
-      user {
-        authUserLogInInputs(username: $username, password: $password)
-      }
+    const query = `query ($username: String!, $password: String!) {
+      authUserLogInInput(username: $username, password: $password)
     }`;
 
     const variables = {

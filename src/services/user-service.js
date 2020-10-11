@@ -24,14 +24,14 @@ const UserService = {
     return response.json();
   },
 
-  async postUser(mutation, variables) {
+  async postUser(query, variables) {
     const settings = {
       'method': 'POST',
       'headers': {
         'Content-Type' : 'application/json'
       },
       'body': JSON.stringify({
-        mutation,
+        query,
         variables
       })
     }
