@@ -1,7 +1,7 @@
 import config from '../config';
 
 const UserService = {
-  async authUser(query, variables) {
+  async login(query, variables) {
     const settings = {
       'method': 'POST',
       'headers': {
@@ -24,7 +24,7 @@ const UserService = {
     return response.json();
   },
 
-  async postUser(query, variables) {
+  async signup(query, variables) {
     const settings = {
       'method': 'POST',
       'headers': {

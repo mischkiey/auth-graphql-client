@@ -15,8 +15,17 @@ export default function SignUpForm (props) {
     const username = e.target['username'].value;
     const password = e.target['password'].value;
 
-    const mutation = `mutation ($input: SignUpInput) {
-      postUserSignUpInput(input: $input)
+    const mutation = `mutation ($input: SignupInput) {
+      signup(input: $input) {
+        token
+        user {
+          id
+          firstName
+          lastName
+          email
+          username
+        }
+      }
     }`;
 
     const variables = {
@@ -30,8 +39,8 @@ export default function SignUpForm (props) {
     };
 
     try {
-      const { data } = await UserService.postUser(mutation, variables);
-      TokenService.saveAuthToken(data.postUserSignUpInput);
+      const { data } = await UserService.signup(mutation, variables);
+      TokenService.saveAuthToken(data.signup.token);
       props.history.push('/')
     } catch({ errors }) {
       setError(...errors);

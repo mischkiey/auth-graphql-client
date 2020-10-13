@@ -12,8 +12,17 @@ export default function LogInForm(props) {
     const username = e.target['username'].value;
     const password = e.target['password'].value;
 
-    const query = `query ($username: String!, $password: String!) {
-      authUserLogInInput(username: $username, password: $password)
+    const mutation = `mutation ($username: String!, $password: String!) {
+      login(username: $username, password: $password) {
+        token
+        user {
+          id
+          firstName
+          lastName
+          email
+          username
+        }
+      }
     }`;
 
     const variables = {
@@ -22,8 +31,8 @@ export default function LogInForm(props) {
     };
 
     try {
-      const { data } = await UserService.authUser(query, variables);
-      TokenService.saveAuthToken(data.authUserLogInInput);
+      const { data } = await UserService.login(mutation, variables);
+      TokenService.saveAuthToken(data.login.token);
       props.history.push('/');
     } catch({ errors }) {
       setError(...errors);
