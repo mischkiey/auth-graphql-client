@@ -24,7 +24,7 @@ export default function LogInForm(props) {
     try {
       const { data } = await UserService.authUser(query, variables);
       TokenService.saveAuthToken(data.authUserLogInInput);
-      props.history.push('/dashboard');
+      props.history.push('/');
     } catch({ errors }) {
       setError(...errors);
     }

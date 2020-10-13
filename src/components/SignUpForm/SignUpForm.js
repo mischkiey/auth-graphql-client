@@ -32,7 +32,7 @@ export default function SignUpForm (props) {
     try {
       const { data } = await UserService.postUser(mutation, variables);
       TokenService.saveAuthToken(data.postUserSignUpInput);
-      props.history.push('/dashboard')
+      props.history.push('/')
     } catch({ errors }) {
       setError(...errors);
     }

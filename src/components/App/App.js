@@ -1,11 +1,17 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
+// Components
 import Header from '../Header/Header';
 import LogInRoute from '../../routes/LogInRoute';
 import SignUpRoute from '../../routes/SignUpRoute';
 import MockDashboardRoute from '../../routes/MockDashboardRoute';
 
+// Utils
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute';
+
+// Style Sheets
 import './App.css';
 
 function App() {
@@ -16,23 +22,20 @@ function App() {
         className='App'
       >
         <Switch>
-          <Route
-            exact
-            path={'/login'}
-            render={(props) => <LogInRoute {...props}/>}
+          <PublicOnlyRoute
+            exact path={'/login'}
+            comp={LogInRoute}
           />
 
-          <Route
-            exact
-            path={'/signup'}
-            render={(props) => <SignUpRoute {...props}/>}
+          <PublicOnlyRoute
+            exact path={'/signup'}
+            comp={SignUpRoute}
           />
 
-          <Route
-            path={'/dashboard'}
-            render={(props) => <MockDashboardRoute {...props}/>}
+          <PrivateRoute
+            exact path={'/'}
+            comp={MockDashboardRoute}
           />
-
         </Switch>
       </main>
     </>
