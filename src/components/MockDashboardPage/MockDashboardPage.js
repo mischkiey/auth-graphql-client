@@ -1,9 +1,17 @@
 import React from 'react';
+import TokenService from '../../services/token-service';
 
-export default function MockDashboardPage (props) {
+export default function MockDashboardPage ({history}) {
   return (
     <>
-      Dashboard Page
+      <button
+        onClick={() => {
+          TokenService.clearAuthToken();
+          history.push('/signup');
+        }}
+      >
+        LOGOUT
+      </button>
     </>
   );
 }

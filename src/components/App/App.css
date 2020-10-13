@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway&family=Roboto&display=swap');
+
+body, html {
+  align-items: center;
+  background-color: #FEFEFE;
+  color: #212121;
+  display: flex;
+  flex-flow: column;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  height: 95%;
+  justify-content: center;
+  text-align: center;
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+}
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 60px;
+  margin: 0;
+}
+
+h2 {
+  color: #E53526;
+  font-size: 16px;
+  margin: 0 0 18px 0;
+}
+
+a {
+  color: #212121;
+}
+
+a:hover {
+  color: #E53526;
+}
+
+form {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+}
+
+input {
+  border: 1px solid #484848;
+  border-radius: 4px;
+  margin-top: 15px;
+  height: 24px;
+  text-align: center;
+}
+
+input:focus {
+  border: 1px solid #212121;
+  color: #212121;
+}
+
+button {
+  background-color: #212121;
+  border: 1px solid #212121;
+  border-radius: 4px;
+  color: #FEFEFE;
+  margin: 15px 0;
+  height: 30px;
+  width: 72px;
+}
+
+button:hover {
+  background-color: #E53526;
+  border: 1px solid #E53526;
+}

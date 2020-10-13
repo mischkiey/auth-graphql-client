@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+import TokenService from '../../services/token-service';
 import UserService from '../../services/user-service';
 
 export default function SignUpForm (props) {
-  const handleSubmitSignUpForm = async(e) => {
+  const [ error, setError ] = useState(null);
+
+  const handleSubmitSignUpForm = async(e) => {    
     e.preventDefault();
+    setError(null);
 
     const firstName = e.target['first_name'].value;
     const lastName = e.target['last_name'].value;
@@ -25,73 +29,82 @@ export default function SignUpForm (props) {
       }
     };
 
-    console.log(variables)
-
     try {
-      const response = await UserService.postUser(mutation, variables);
-      console.log(response);
-    } catch(e) {
-      console.log(e);
+      const { data } = await UserService.postUser(mutation, variables);
+      TokenService.saveAuthToken(data.postUserSignUpInput);
+      props.history.push('/dashboard')
+    } catch({ errors }) {
+      console.log(errors);
+      const { message } = errors[0];
+      setError(message);
     }
   }
 
   return (
-    <form
-      onSubmit={(e) =>
-        handleSubmitSignUpForm(e)
+    <>
+      {error
+        ? <p>
+            {error}
+          </p>
+        : ''
       }
-    >
-      <input
-        aria-label='first name'
-        placeholder='first name'
-        className='formInput'
-        id='first_name'
-        type='text'
-        required
-      />
-  
-      <input
-        aria-label='last name'
-        placeholder='last name'
-        id='last_name'
-        type='text'
-        required
-      />
-
-      <input
-        aria-label='email'
-        placeholder='email'
-        id='email'
-        type='text'
-        required
-      />
-
-      <input
-        aria-label='username'
-        placeholder='username'
-        id='username'
-        type='text'
-      />
-
-      <input
-        aria-label='password'
-        placeholder='password'
-        id='password'
-        type='text'
-      />
-
-      <button
-        className=''
-        type='submit'
+      <form
+        onSubmit={(e) =>
+          handleSubmitSignUpForm(e)
+        }
       >
-        SIGNUP
-      </button>
-      <p>
-        Already have an account?
-      </p>
-      <a href='/login'>
-        Log In
-      </a>
+        <input
+          aria-label='first name'
+          placeholder='first name'
+          className='formInput'
+          id='first_name'
+          type='text'
+          required
+        />
+    
+        <input
+          aria-label='last name'
+          placeholder='last name'
+          id='last_name'
+          type='text'
+          required
+        />
+
+        <input
+          aria-label='email'
+          placeholder='email'
+          id='email'
+          type='text'
+          required
+        />
+
+        <input
+          aria-label='username'
+          placeholder='username'
+          id='username'
+          type='text'
+        />
+
+        <input
+          aria-label='password'
+          placeholder='password'
+          id='password'
+          type='password'
+        />
+
+        <button
+          className=''
+          type='submit'
+        >
+          SIGNUP
+        </button>
+        <p>
+          Already have an account?
+        </p>
+        <a href='/login'>
+          Log In
+        </a>
     </form>
+    </>
   );
 }

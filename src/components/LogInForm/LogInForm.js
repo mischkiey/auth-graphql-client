@@ -1,4 +1,5 @@
 import React from 'react';
+import TokenService from '../../config';
 import UserService from '../../services/user-service';
 
 export default function LogInForm(props) {
@@ -18,45 +19,49 @@ export default function LogInForm(props) {
     };
 
     try {
-      const response = await UserService.authUser(query, variables);
-      console.log(response);
+      const { data } = await UserService.authUser(query, variables);
+      console.log(data)
+      TokenService.saveAuthToken(data.postUserSignUpInput);
+      props.history.push('/dashboard');
     } catch(e) {
       console.log(e);
     }
   }
 
   return (
-    <form
-      onSubmit={(e) =>
-        handleSubmitLogInForm(e)
-      }
-    >
-      <input
-        aria-label='username'
-        placeholder='username'
-        id='username'
-        type='text'
-      />
-
-      <input
-        aria-label='password'
-        placeholder='password'
-        id='password'
-        type='password'
-      />
-
-      <button
-        className=''
-        type='submit'
+    <>
+      <form
+        onSubmit={(e) =>
+          handleSubmitLogInForm(e)
+        }
       >
-        LOGIN
-      </button>
-      <p>
-        Don't have an account?
-      </p>
-      <a href='/signup'>
-        Sign Up
-      </a>
+        <input
+          aria-label='username'
+          placeholder='username'
+          id='username'
+          type='text'
+        />
+
+        <input
+          aria-label='password'
+          placeholder='password'
+          id='password'
+          type='password'
+        />
+
+        <button
+          className=''
+          type='submit'
+        >
+          LOGIN
+        </button>
+        <p>
+          Don't have an account?
+        </p>
+        <a href='/signup'>
+          Sign Up
+        </a>
     </form>
+    </>
   );
 }

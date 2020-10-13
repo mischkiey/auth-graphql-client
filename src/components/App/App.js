@@ -6,6 +6,8 @@ import LogInRoute from '../../routes/LogInRoute';
 import SignUpRoute from '../../routes/SignUpRoute';
 import MockDashboardRoute from '../../routes/MockDashboardRoute';
 
+import './App.css';
+
 function App() {
   return (
     <>
@@ -17,18 +19,18 @@ function App() {
           <Route
             exact
             path={'/login'}
-            component={LogInRoute}
+            render={(props) => <LogInRoute {...props}/>}
           />
 
           <Route
             exact
             path={'/signup'}
-            component={SignUpRoute}
+            render={(props) => <SignUpRoute {...props}/>}
           />
 
           <Route
             path={'/dashboard'}
-            component={MockDashboardRoute}
+            render={(props) => <MockDashboardRoute {...props}/>}
           />
 
         </Switch>

@@ -1,11 +1,18 @@
 import React from 'react';
 
 export default function Header (props) {
+
+
   return (
-    <header>
+    <header
+      className='header'
+    >
       <h1>
-        Header
+        Welcome
       </h1>
+      <h2>
+        Demo Login/Registration System
+      </h2>
     </header>
   );
 }
