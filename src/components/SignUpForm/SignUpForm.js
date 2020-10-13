@@ -34,9 +34,7 @@ export default function SignUpForm (props) {
       TokenService.saveAuthToken(data.postUserSignUpInput);
       props.history.push('/dashboard')
     } catch({ errors }) {
-      console.log(errors);
-      const { message } = errors[0];
-      setError(message);
+      setError(...errors);
     }
   }
 

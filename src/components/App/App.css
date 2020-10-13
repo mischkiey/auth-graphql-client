@@ -17,6 +17,7 @@ body, html {
   align-items: center;
   display: flex;
   flex-flow: column;
+  margin-bottom: 20px;
 }
 
 h1 {

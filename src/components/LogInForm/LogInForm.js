@@ -1,10 +1,13 @@
-import React from 'react';
-import TokenService from '../../config';
+import React, { useState } from 'react';
+import TokenService from '../../services/token-service';
 import UserService from '../../services/user-service';
 
 export default function LogInForm(props) {
+  const [ error, setError ] = useState(null);
+
   const handleSubmitLogInForm = async (e) => {
     e.preventDefault();
+    setError(null);
 
     const username = e.target['username'].value;
     const password = e.target['password'].value;
@@ -20,16 +23,21 @@ export default function LogInForm(props) {
 
     try {
       const { data } = await UserService.authUser(query, variables);
-      console.log(data)
-      TokenService.saveAuthToken(data.postUserSignUpInput);
+      TokenService.saveAuthToken(data.authUserLogInInput);
       props.history.push('/dashboard');
-    } catch(e) {
-      console.log(e);
+    } catch({ errors }) {
+      setError(...errors);
     }
   }
 
   return (
     <>
+      {error
+        ? <p>
+            {error}
+          </p>
+        : ''
+      }
       <form
         onSubmit={(e) =>
           handleSubmitLogInForm(e)
@@ -40,6 +48,7 @@ export default function LogInForm(props) {
           placeholder='username'
           id='username'
           type='text'
+          required
         />
 
         <input
@@ -47,6 +56,7 @@ export default function LogInForm(props) {
           placeholder='password'
           id='password'
           type='password'
+          required
         />
 
         <button
