@@ -6,15 +6,11 @@
 
 * Created and submitted in fulfillment of the technical challenge for the Web Developer Position at StageWood Consortium, Inc.
 
----
-
 ## Quick Links
 
 [Client/Front-End GitHub Repo](https://github.com/mischkiey/auth-graphql-client.git)
 
 [API/Back-End GitHub Repo](https://github.com/mischkiey/auth-graphql-api.git)
-
----
 
 ## Client Installation
 
@@ -27,8 +23,6 @@
 4. `mv example.env .env` to move the example environment file to .env that will be ignored by git and read by React. Modify REACT_APP_TOKEN_KEY as needed.
 
 5. `npm start` to run the application in development mode
-
----
 
 ## API Installation
 
@@ -46,8 +40,6 @@
 
 7. `npm start` to run the application or `npm run dev` to run nodemon for the application
 
----
-
 ## Client App Screenshots
 
 1. Login Page
@@ -62,13 +54,9 @@
 
 ![Login Page](./images/mock-dashboard-page.png)
 
----
-
 ## GraphQL Documentation
 
 *
-
----
 
 ## Tech Stack
 
