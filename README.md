@@ -64,9 +64,35 @@
 
 <br>
 
-## GraphQL Documentation
+## GraphQL Schema Documentation
 
-*
+``
+type Mutation {
+    login(username: String!, password: String!): AuthPayload
+    signup(input: SignupInput): AuthPayload
+  }
+
+  type AuthPayload {
+    token: String
+    user: User
+  }
+
+  type User  {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+    username: String!
+  }
+
+  input SignupInput {
+    firstName: String!
+    lastName: String!
+    email: String!
+    username: String!
+    password: String!
+  }
+``
 
 <br>
 
