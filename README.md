@@ -1,6 +1,6 @@
 # Simple Login/Registration App Demonstration
 
-** Developer Name: Michelle Colacion Francisco**
+**Developer Name: Michelle Colacion Francisco**
 
 * Using ReactJS, NodeJS, Express, GraphQL, Prisma, & PostgreSQL
 
@@ -8,9 +8,11 @@
 
 ## Quick Links
 
-[Client/Front-End GitHub Repo](https://github.com/mischkiey/auth-graphql-client.git)
+[Client/Front-End GitHub Repo]
+(https://github.com/mischkiey/auth-graphql-client.git)
 
-[API/Back-End GitHub Repo](https://github.com/mischkiey/auth-graphql-api.git)
+[API/Back-End GitHub Repo]
+(https://github.com/mischkiey/auth-graphql-api.git)
 
 ## Client Installation
 
@@ -44,15 +46,18 @@
 
 1. Login Page
 
-![Login Page](./images/login-page.png)
+![Login Page]
+(./images/login-page.png)
 
 2. Signup Page
 
-![Login Page](./images/signup-page.png)
+![Login Page]
+(./images/signup-page.png)
 
 3. Mock Dashboard
 
-![Login Page](./images/mock-dashboard-page.png)
+![Login Page]
+(./images/mock-dashboard-page.png)
 
 ## GraphQL Documentation
 
