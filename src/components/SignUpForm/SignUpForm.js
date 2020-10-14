@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TokenService from '../../services/token-service';
 import UserService from '../../services/user-service';
 
-export default function SignUpForm (props) {
+export default function SignupForm (props) {
   const [ error, setError ] = useState(null);
 
   const handleSubmitSignUpForm = async(e) => {    

@@ -3,8 +3,8 @@ import { Switch } from 'react-router-dom';
 
 // Components
 import Header from '../Header/Header';
-import LogInRoute from '../../routes/LogInRoute';
-import SignUpRoute from '../../routes/SignUpRoute';
+import LoginRoute from '../../routes/LoginRoute';
+import SignupRoute from '../../routes/SignupRoute';
 import MockDashboardRoute from '../../routes/MockDashboardRoute';
 
 // Utils
@@ -24,12 +24,12 @@ function App() {
         <Switch>
           <PublicOnlyRoute
             exact path={'/login'}
-            comp={LogInRoute}
+            comp={LoginRoute}
           />
 
           <PublicOnlyRoute
             exact path={'/signup'}
-            comp={SignUpRoute}
+            comp={SignupRoute}
           />
 
           <PrivateRoute

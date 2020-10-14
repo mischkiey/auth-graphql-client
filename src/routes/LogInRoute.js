@@ -1,10 +1,10 @@
 import React from 'react';
-import LogInForm from '../components/LogInForm/LogInForm';
+import LoginForm from '../components/LoginForm/LoginForm';
 
-export default function LogInRoute (props) {
+export default function LoginRoute (props) {
   return (
     <>
-      <LogInForm {...props}/>
+      <LoginForm {...props}/>
     </>
   );
 }

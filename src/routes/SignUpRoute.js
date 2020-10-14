@@ -1,10 +1,10 @@
 import React from 'react';
-import SignUpForm from '../components/SignUpForm/SignUpForm';
+import SignupForm from '../components/SignupForm/SignupForm';
 
-export default function SignUpRoute (props) {
+export default function SignupRoute (props) {
   return (
     <>
-      <SignUpForm {...props}/>
+      <SignupForm {...props}/>
     </>
   );
 }
