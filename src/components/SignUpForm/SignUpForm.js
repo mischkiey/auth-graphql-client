@@ -56,7 +56,9 @@ export default function SignupForm (props) {
   return (
     <>
       {error
-        ? <p>
+        ? <p
+            className='error'
+          >
             {error}
           </p>
         : ''

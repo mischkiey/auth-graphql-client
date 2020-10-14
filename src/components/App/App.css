@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&display=swap');
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
 
 body, html {
   align-items: center;
@@ -6,7 +10,6 @@ body, html {
   color: #212121;
   display: flex;
   flex-flow: column;
-  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   height: 95%;
   justify-content: center;
@@ -21,8 +24,8 @@ body, html {
 }
 
 h1 {
-  font-family: 'Raleway', sans-serif;
-  font-size: 60px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
   margin: 0;
 }
 
@@ -65,11 +68,24 @@ button {
   border-radius: 4px;
   color: #FEFEFE;
   margin: 15px 0;
-  height: 30px;
-  width: 72px;
+  height: 24px;
+  width: 84px;
 }
 
 button:hover {
-  background-color: #E53526;
-  border: 1px solid #E53526;
+  animation-name: change-color-on-hover;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes change-color-on-hover {
+  100% {
+    background-color: #E53526;
+    border: 1px solid #E53526;
+  }
+}
+
+.error {
+  color: #E53526;
+  font-weight: 500;
 }

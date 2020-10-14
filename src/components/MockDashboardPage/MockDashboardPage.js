@@ -20,8 +20,8 @@ export default function MockDashboardPage ({history}) {
         const { data } =  await UserService.user(query);
         setUser(data.user);
 
-      } catch({ errors }) {
-        console.log(...errors);
+      } catch({errors}) {
+        console.log(...errors)
       }
     }
     getUser();

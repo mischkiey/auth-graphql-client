@@ -48,7 +48,9 @@ export default function LoginForm(props) {
   return (
     <>
       {error
-        ? <p>
+        ? <p
+            className='error'
+          >
             {error}
           </p>
         : ''

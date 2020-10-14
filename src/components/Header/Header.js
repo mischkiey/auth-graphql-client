@@ -8,11 +8,8 @@ export default function Header (props) {
       className='header'
     >
       <h1>
-        Welcome
+        Login & Signup Demo
       </h1>
-      <h2>
-        Simple Login & Registration System
-      </h2>
     </header>
   );
 }
