@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import TokenService from '../../services/token-service';
+import { UserContext } from '../../contexts/UserContext';
 import UserService from '../../services/user-service';
 
 export default function SignupForm (props) {
   const [ error, setError ] = useState(null);
+  const { setUser } = useContext(UserContext);
 
   const handleSubmitSignUpForm = async(e) => {    
     e.preventDefault();
@@ -40,7 +42,11 @@ export default function SignupForm (props) {
 
     try {
       const { data } = await UserService.signup(mutation, variables);
-      TokenService.saveAuthToken(data.signup.token);
+      const { token, user } = data.signup;
+
+      TokenService.saveAuthToken(token);
+      setUser(user);
+      
       props.history.push('/')
     } catch({ errors }) {
       setError(...errors);

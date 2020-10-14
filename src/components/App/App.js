@@ -11,7 +11,7 @@ import MockDashboardRoute from '../../routes/MockDashboardRoute';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute';
 
-// Style Sheets
+// Style Sheet/s
 import './App.css';
 
 function App() {

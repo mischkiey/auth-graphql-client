@@ -11,7 +11,7 @@ export default function Header (props) {
         Welcome
       </h1>
       <h2>
-        Demo Login/Registration System
+        Simple Login & Registration System
       </h2>
     </header>
   );
