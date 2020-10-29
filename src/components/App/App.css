@@ -68,7 +68,7 @@ button {
 
 button:hover {
   animation-name: change-color-on-hover;
-  animation-duration: 300ms;
+  animation-duration: 250ms;
   animation-fill-mode: forwards;
 }
 
